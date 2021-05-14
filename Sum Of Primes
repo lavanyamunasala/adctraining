@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+long int No=1000;
+long int seive[1000];
+void GenSeive()
+{
+    for(int i=0;i<No;i++)
+    {
+        seive[i]=1;
+    }
+    seive[0]=seive[1]=0;
+    for(int i=2;i*i<No;i++)
+    {
+        if(seive[i]==1)
+        {
+            for(int j=i*i;j<No;j=j+i)
+            {
+                seive[j]=0; }
+        }
+    }
+}
+int main() 
+{ 
+    int a,l,r;
+        cin >> a;
+    GenSeive(); 
+    while(a--)
+    {   
+        int Sum=0;
+        cin>>l>>r;                      
+        for(int i=l;i<=r;i++)
+        {
+            if(seive[i]==1)
+            {
+            Sum=Sum+i;
+            }
+        }
+        cout<<Sum<<endl;
+    }
+}
+
+
