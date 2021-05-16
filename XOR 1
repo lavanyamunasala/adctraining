@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int* game_with_number(int ar[], int no);
+int main()
+{
+    int n;cin>> n;
+    while(n--)
+    {
+        int no;
+        cin>>no;
+        int ar[no];
+        for(int i=0;i<no;i++)
+            cin>>ar[i];
+        int *ar2;
+        ar2 = game_with_number(ar, no);
+        for(int i=0;i<no; i++)
+            cout<<rr2[i] << " ";
+        cout<<endl;
+    }
+}
+int* game_with_number(int ar[], int no)
+{
+    for(int i=0;i<no-1;i++)
+    {
+        ar[i]=ar[i]|ar[i+1];
+    }
+    return ar;
+}
