@@ -1,0 +1,52 @@
+#include<bits/stdc++.h> 
+	using namespace std; 
+	class Solution
+	{   
+	public:
+	    int maxSubarrayXOR(int no, int ar[])
+	    {  
+	        int x=ar[0];
+	        int m=0,le=0;
+	        int r=0;
+	        while(m+1<no)
+	        {
+	           m++;
+	           x=x^ar[m];
+	           r=max(r,x);
+	           if(r>x)
+	           {
+	              le++;
+	              x=ar[l];
+	              if(m!=l)
+	                  m--;
+	              
+	               
+	           }
+	        }
+	        sort(ar,ar+no);
+	        if(ar[no-1]>r)
+	           return ar[no-1];
+	        return r;
+	        
+	        
+	        
+	    }
+	}
+	int main() 
+	{ 
+	    int t;
+	    cin>>t;
+	    while(t--)
+	    {
+	        int N, X;
+	        cin >> N;
+	        int ar[N];
+	        for(int i = 0; i < N; i++){
+	            cin >> ar[i];
+	        }
+	
+	        Solution ob;
+	        cout << ob.maxSubarrayXOR(N, ar) << endl;
+	    }
+	    return 0; 
+	} 
